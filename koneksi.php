@@ -1,14 +1,11 @@
 <?php
 $host = "localhost";
-$user = "root";
-$pass = "";
-$db   = "PrakWeb";
+$username = "root";
+$password = "";
+$database = "weblogin";
 
-$conn = mysqli_connect($host, $user, $pass, $db);
+$conn = new mysqli($host, $username, $password, $database);
 
-if (!$conn) {
-    die("Koneksi gagal: " . mysqli_connect_error());
-} else {
-    echo "Koneksi berhasil";
+if ($conn->connect_error) {
+    die("Koneksi gagal: " . $conn->connect_error);
 }
-?>
